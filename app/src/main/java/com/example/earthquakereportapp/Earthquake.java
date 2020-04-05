@@ -1,20 +1,24 @@
 package com.example.earthquakereportapp;
 
-import org.json.JSONObject;
-
 public class Earthquake {
 
-    private float mMagnitude;
+    private String mMagnitude;
     private String mLocation;
-    private int mDate;
+    private String mDate;
+    private String mUrl;
 
-    public Earthquake(float mMagnitude, String mLocation, int mDate) {
+    public Earthquake(String mMagnitude, String mLocation, String mDate, String mUrl) {
         this.mMagnitude = mMagnitude;
         this.mLocation = mLocation;
         this.mDate = mDate;
+        this.mUrl = mUrl;
     }
 
-    public float getmMagnitude() {
+    public String getmUrl() {
+        return mUrl;
+    }
+
+    public String getmMagnitude() {
         return mMagnitude;
     }
 
@@ -22,7 +26,7 @@ public class Earthquake {
         return mLocation;
     }
 
-    public int getmDate() {
+    public String getmDate() {
         return mDate;
     }
 }

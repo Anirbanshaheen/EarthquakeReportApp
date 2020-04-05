@@ -1,10 +1,16 @@
 package com.example.earthquakereportapp;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class QueryUtils {
 
@@ -29,18 +35,31 @@ public class QueryUtils {
         try{
             JSONObject jsonRootObject = new JSONObject(SAMPLE_JSON_RESPONSE);
 
-            JSONArray jsonArray = jsonRootObject.optJSONArray("features");
+            JSONArray jsonArray = jsonRootObject.getJSONArray("features");
 
             for(int i = 0; i < jsonArray.length(); i++){
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                jsonObject.getJSONObject("properties");
 
-                float mag = Float.parseFloat(jsonObject.optString("mag"));
-                String place = jsonObject.getString("place");
-                int time = Integer.parseInt(jsonObject.getString("time"));
 
-                Earthquake earthquake = new Earthquake(mag,place,time);
+                String mag = String.valueOf(jsonObject.getJSONObject("properties").getDouble("mag"));
+
+                String place = jsonObject.getJSONObject("properties").getString("place");
+
+                String time = String.valueOf(jsonObject.getJSONObject("properties").getLong("time"));
+
+                String url = String.valueOf(jsonObject.getJSONObject("properties").getString("url"));
+
+                // Date format
+                DateFormat dateFormat = new SimpleDateFormat();
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(Long.parseLong(time));
+                String date = dateFormat.format(calendar.getTime());
+
+
+
+                Earthquake earthquake = new Earthquake(mag,place,date,url);
                 earthquakes.add(earthquake);
             }
 
