@@ -1,5 +1,6 @@
 package com.example.earthquakereportapp;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -112,7 +113,12 @@ public class QueryUtils {
         }
         return output.toString();
     }
-//    extractEarthquakes
+
+    /**
+     * Extract Earthquake.
+     * @param earthquakeJson
+     * @return
+     */
     private static ArrayList<Earthquake> extractFeatureFromJson(String earthquakeJson){
         // If the Json String is empty or null, then return early.
         if(TextUtils.isEmpty(earthquakeJson)){

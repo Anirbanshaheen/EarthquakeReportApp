@@ -9,35 +9,33 @@ import androidx.loader.content.Loader;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.AsyncTask;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
+// Main Url
 import static com.example.earthquakereportapp.QueryUtils.USGS_REQUEST_URL;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Earthquake>> {
     private EarthquakeAdapter mAdapter;
     private TextView emptyTextView;
 
-    // This really only comes into play if you're using multiple loaders.
+    // This really only comes into play if we are using multiple loaders.
     private static final int EARTHQUAKE_LOADER_ID = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

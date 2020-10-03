@@ -5,7 +5,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -56,9 +55,6 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         int magnitudeColor = getMagnitudeColor(currentEarthquake.getmMagnitude());
 
         magnitudeCircle.setColor(magnitudeColor);
-
-
-
 
         TextView primaryLocationView = listItemView.findViewById(R.id.primary_location);
         primaryLocationView.setText(primaryLocation);

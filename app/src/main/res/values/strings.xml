@@ -9,4 +9,6 @@
     <string name="settings_min_magnitude_label">Minimum Magnitude</string>
     <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
     <string name="settings_min_magnitude_default" translatable="false">6</string>
+    <string name="long_placeholder_location_that_should_wrap_to_more_than_2_lines_of_text">Long placeholder location that should wrap to more than 2 lines of text</string>
+    <string name="_30km_s_of">30km S of</string>
 </resources>
